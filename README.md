@@ -53,6 +53,7 @@ This screen recording shows the entire process of the application, including the
 - Demo of the deployed model
 - Demo of a sample request sent to the endpoint and its response
 
+[Here is the link to the screen recording (5 minutes).](https://www.dropbox.com/s/i6jcczzno9j6t6f/Udacity_ML-Engineer_with_MS-Azure_Project-03_Screen-Recording.mov?dl=0)
 
 ## Future Improvements
 Text
