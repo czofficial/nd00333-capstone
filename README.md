@@ -11,6 +11,13 @@
 ## Project Overview
 This project is part of the Udacity Azure ML Nanodegree.
 
+The below image is a good overview of the general project workflow.
+1. I, first, chose and imported a dataset to my Azure workspace
+2. Then, I trained a model using AutoML as a first approach
+3. Then, I trained a model using HyperDrive as a second approach
+4. And lastly, compared both models, deployed one (in my case the AutoML model) and tested the endpoint
+
+![project](./screenshots/project.png)
 
 ## Dataset
 ### Overview
@@ -89,9 +96,9 @@ This is a screenshot showing the best run:
 
 ## HyperDrive
 ### Overview
-I chose a RandomForest the best model of AutoML (LightGBM) also favours a tree/forest approach. Random forests or random decision forests are an ensemble learning method for classification, regression and other tasks that operate by constructing a multitude of decision trees at training time and outputting the class that is the mode of the classes (classification) or mean/average prediction (regression) of the individual trees.\n
+I chose a Random Forest as the best model of AutoML (LightGBM) also favours a tree/forest approach. Random forests or random decision forests are an ensemble learning method for classification, regression and other tasks that operate by constructing a multitude of decision trees at training time and outputting the class that is the mode of the classes (classification) or mean/average prediction (regression) of the individual trees.
 
-The interesting part here is probably the hyperparamter search:
+The interesting part here is probably the hyperparamter search grid:
 ````
 param_sampling = RandomParameterSampling(
     {
@@ -101,10 +108,10 @@ param_sampling = RandomParameterSampling(
     }
 )
 ````
-As I put no effort into the training of the RandomForest, I didn't leave the model much of a choice here: Max depth only 5, min split only 2 or 5 and min leaf only up to 5. One word to the RandomParameterSampling Class: It defines random sampling over a hyperparameter search space.
+As I put no effort into the training of the Random Forest, I didn't leave the model much of a choice here: Max depth only 5, min split only 2 or 5 and min leaf only up to 5. One word to the RandomParameterSampling Class: It defines random sampling over a hyperparameter search space.
 
 ### Results
-The results were somewhat as expected. At the end, the model only trained for about 5 minutes (compared to AutoML with around 15 minutes). Mean average error was 4.100 British Pounds. Not the worst, but also not the best compared to AutoML.\n
+The results were somewhat as expected. At the end, the model only trained for about 5 minutes (compared to AutoML with around 15 minutes). Mean average error was 4.100 British Pounds. Not the worst, but also not the best compared to AutoML.
 
 Here are the chosen parameters of the best model:
 ````
@@ -117,13 +124,9 @@ This is a screenshot showing the run details:
 This is a screenshot showing the best run:
 ![hp_run-best-run](./screenshots/hp_run-best-run.png)
 
-*TODO*: What are the results you got with your model? What were the parameters of the model? How could you have improved it?
-
-*TODO* Remeber to provide screenshots of the `RunDetails` widget as well as a screenshot of the best model trained with it's parameters.
-
 
 ## Model Deployment
-I only deployed the AutoML model since it performed better. This was done in the AutoML notebook by creating an Azure Container Instance (ACI). Basically, one runs a Docker container in a managed, serverless Azure environment to quickly deploy the model.
+I only deployed the AutoML model since it performed better. This was done in the AutoML notebook by creating an Azure Container Instance (ACI). Basically, you can run a Docker container in a managed, serverless Azure environment to quickly deploy your model.
 
 This screenshots shows the AutoML model endpoint. It also shows the deployment state as healthy:
 ![automl_run-details](./screenshots/automl_endpoint.png)
@@ -163,5 +166,4 @@ The model could've been improved with more time given for the actual training. A
 - HyperDrive
 The model could've been improved with a larger parameter space / more possibilities for the parameters.
 
-\n
 However, as I said, model performance was not the focus on this project for me.
