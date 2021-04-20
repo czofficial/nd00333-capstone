@@ -160,10 +160,10 @@ This screen recording shows the entire process of the application, including the
 [Here is the link to the screen recording (5 minutes).](https://www.dropbox.com/s/i6jcczzno9j6t6f/Udacity_ML-Engineer_with_MS-Azure_Project-03_Screen-Recording.mov?dl=0)
 
 ## Future Improvements
-- AutomatedML
+- AutomatedML\
 The model could've been improved with more time given for the actual training. Another way would've been bringing in additional data, at least for each class.
 
-- HyperDrive
+- HyperDrive\
 The model could've been improved with a larger parameter space / more possibilities for the parameters.
 
 However, as I said, model performance was not the focus on this project for me.
